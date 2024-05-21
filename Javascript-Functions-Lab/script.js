@@ -196,3 +196,80 @@ const convertTemperature = (temp, celFar) =>
 
 console.log(convertTemperature(32, "C"));
 
+
+/*
+Exercise 11: basicCalculator()
+
+Create a function named basicCalculator. It should take three arguments: two numbers and a string representing an operation ('add', 'subtract', 'multiply', 'divide'). Perform the provided operation on the two numbers. In operations where the order of numbers is important, treat the first parameter as the first operand and the second parameter as the second operand.
+
+Example: basicCalculator(10, 5, 'subtract') should return 5.
+
+Complete the exercise in the space below:
+*/
+
+const basicCalculator = (num1, num2, operation) => {
+    let a = num1;
+    let b = num2;
+    let c = operation; 
+    if (c === 'add') {
+        return (`${a+b}`);
+    } else if (c === "subtract") { 
+      return (`${a-b}`);
+    } else if (c === "divide") {
+      return (`${a/b}`); 
+    } else if (c === "multiply") {
+      return (`${a*b}`)
+    }
+}
+
+
+console.log(basicCalculator(1, 0, "subtract"));
+
+
+/*
+Exercise 12: calculateGrade()
+
+Define a function called calculateGrade. It should take a numerical score and return the corresponding letter grade (A, B, C, D, F). For example, 90 and above yields an 'A', 80-89 is a 'B', and 70-79 is a 'C', 60-69 is a 'D' and anything lower than a 60 is an 'F'.
+
+Example: calculateGrade(100) should return A.
+
+Complete the exercise in the space below:
+*/
+
+const calculateGrade = (score) => {
+  let grade = score;
+
+  if (grade >= 90) {
+    return "A";
+  } else if (grade >= 80 && grade < 90) {
+    return "B";
+  } else if (grade >= 70 && grade < 80) {
+    return "C";
+  } else if (grade >= 60 && grade < 70) {
+    return "D";
+  } else if (grade < 60) {
+    return "F";
+  }
+
+}
+
+
+console.log(calculateGrade(100));
+
+// alt simplified way 
+
+const calculateGrade = (score) => {
+  if (score >= 90) {
+    return "A";
+  } else if (score >= 80) {
+    return "B";
+  } else if (score >= 70) {
+    return "C";
+  } else if (score >= 60) {
+    return "D";
+  } else {
+    return "F";
+  }
+}
+
+console.log(calculateGrade(100)); // Output: A
