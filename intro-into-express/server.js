@@ -4,7 +4,6 @@ const { type } = require('os');
 const server = express();
 
 server.listen(4000, () => {
-    console.log('aa');
 });
 
 
@@ -51,4 +50,64 @@ server.get('/collectibles/:indexParameter', (req, res) => {
     
 })
 
-4. Filter Shoes by Query Parameters
+// 4. Filter Shoes by Query Parameters
+
+const shoes = [
+    { name: "Birkenstocks", price: 50, type: "sandal" },
+    { name: "Air Jordans", price: 500, type: "sneaker" },
+    { name: "Air Mahomeses", price: 501, type: "sneaker" },
+    { name: "Utility Boots", price: 20, type: "boot" },
+    { name: "Velcro Sandals", price: 15, type: "sandal" },
+    { name: "Jet Boots", price: 1000, type: "boot" },
+    { name: "Fifty-Inch Heels", price: 175, type: "heel" }
+];
+
+
+
+server.get('/shoes/minprice/:price', (req, res) => {
+    let priceString = req.params.price;
+    let price = Number(priceString);
+    let shoeArray = [];
+
+    shoes.forEach((shoe) => {
+        if (shoe.price <= price) {
+            shoeArray.push(shoe);
+        }
+    })
+    res.send(shoeArray);
+})
+
+
+server.get('/shoes/maxprice/:price', (req, res) => {
+    let priceString = req.params.price;
+    let price = Number(priceString);
+    let shoeArray = [];
+
+    shoes.forEach((shoe) => {
+        if (shoe.price >= price) {
+            shoeArray.push(shoe);
+        }
+    })
+    res.send(shoeArray);
+})
+
+
+server.get('/shoes/type/:shoes', (req, res) => {
+    let shoeType = req.params.shoes;
+    let shoeArray = [];
+
+    shoes.forEach((shoe) => {
+        if (shoe.type === shoeType) {
+            shoeArray.push(shoe);
+        }
+    })
+    res.send(shoeArray);
+})
+
+
+server.get('/shoes/', (req, res) => {
+    res.send(shoes)
+})
+
+'/shoes/minprice:price'
+'/shoes/minprice/:price'
