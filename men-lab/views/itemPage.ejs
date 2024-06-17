@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/">Home</a>
+    <a href="/items">Items</a>
+    <a href="/items/submit">Submit Item</a>
+    <ul>
+        <li><%= item.itemName%></li>
+        <li>Stats: <%= item.stats%></li>
+        <li>Cost: <%= item.cost%></li>
+        <li>Description: <%= item.description%></li>
+    </ul> 
+    <a href="/items/<%= item._id %>/edit">Edit <%= item.itemName %></a>  
+    <form action="/items/<%= item._id%>?_method=DELETE" method="post">
+        <button>
+            Delete <%=item.name%>
+        </button>
+    </form>
+</body>
+</html>
