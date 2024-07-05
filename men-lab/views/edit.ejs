@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
     <a href="/">Home</a>
@@ -11,20 +12,20 @@
     
     <form action="/items/<%= item._id %>?_method=PUT" method="post">
         <label> 
-            Item Name:
-            <input type="text" name="itemName">
+            Item Name: 
+            <input type="text" name="itemName" value="<%= item.itemName%>">
         </label>
         <label> 
             Stats:
-            <input type="text" name="stats">
+            <input type="text" name="stats" value="<%= item.stats%>">
         </label>
         <label> 
             Cost:
-            <input type="text" name="cost">
+            <input type="text" name="cost" value="<%= item.cost%>">
         </label>
         <label> 
-            Description:
-            <input type="text" name="description">
+            Description: 
+            <input type="text" name="description" value="<%= item.description%>">
         </label>
         <button type="submit">Submit Item</button>
     </form>

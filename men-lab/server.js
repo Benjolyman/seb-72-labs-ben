@@ -8,6 +8,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const methodOverride = require('method-override');
+const path = require("path");
 
 const server = express();
 
@@ -23,7 +24,8 @@ mongoose.connection.on('error', (err) => {
 server.set('view engine', 'ejs');
 server.use(express.urlencoded({extended: true}));
 server.use(methodOverride('_method'));
-server.use(morgan('dev'));
+server.use(morgan('prod'));
+server.use(express.static(path.join(__dirname, "public")));
 
 //load model
 const Items = require('./models/items');

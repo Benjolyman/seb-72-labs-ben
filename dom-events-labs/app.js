@@ -9,35 +9,70 @@ As a user, I want to be able to see the output of the mathematical operation.
 As a user, I want to be able to clear all operations and start from 0.
 */
 
-/*-------------------------------- Constants --------------------------------*/
-const buttons = document.querySelectorAll('.button')
-const displayInput = document.querySelectorAll('.display')
 
-/*-------------------------------- Variables --------------------------------*/
 
-/*------------------------ Cached Element References ------------------------*/
+let num1 = '';
+let num2 = '';
+let operator = '';
+let result = 0;
 
-/*-------------------------------- Functions --------------------------------*/
-function handleNumber(number)
 
-/*----------------------------- Event Listeners -----------------------------*/
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      const buttonText = button.textContent;
 
-      if (button.classList.contains('number')) {
-        handleNumber(buttonText);
-      } else if (button.classList.contains('operator')) {
-        handleOperator(buttonText);
-      } else if (button.classList.contains('equals')) {
-        handleEquals();
-      }
-      updateDisplay();
-    });
-  });
-//rules
+const calcDisplay = document.querySelector('.display');
+const calculator = document.querySelector('#calculator')
 
-//upon entering a number and clicking on a function. the function will clear the number from the display and store it in memory
+function calculate(a, b, operation) {
+  if (operation === '+') {
+    return a+b;
+  }
+  if (operation === '-') {
+    return a-b;
+  }
+  if (operation === '*') {
+    return a*b;
+  }
+  if (operation === '/') {
+    return a/b;
+  }
 
-//clear will clear memory 
+};
+
+
+
+calculator.addEventListener('click', (event) => {
+
+  if (event.target.classList.contains('number')) {
+    if (operator === ''){
+      num1 += event.target.innerText;
+      calcDisplay.innerText = num1;
+    } else {
+      num2 += event.target.innerText;
+      calcDisplay.innerText = num2;
+    };
+
+  }
+
+  if (event.target.classList.contains('operator')) {
+
+    if (event.target.innerText === 'C') {
+      num1 = '';
+      num2 = '';
+      operator = '';
+      result = 0;
+      calcDisplay.innerText = '';
+    } else {
+      operator = event.target.innerText;
+      calcDisplay.innerText = '';
+    }
+  }
+
+  if (event.target.classList.contains('equals')) {
+    result = calculate(Number(num1), Number(num2), operator);
+    calcDisplay.textContent = result;
+    num1 = result;
+    num2 = '';
+    operator = '';
+  }
+
+})
 
