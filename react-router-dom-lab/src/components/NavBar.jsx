@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import './css/NavBar.css'
 
 const NavBar = () => {
   return (
     <nav className="nav">
-      <ul>
+      <ul className="nav-list">
         <li>
           <Link to="/">Home</Link>
         </li>
@@ -11,11 +12,11 @@ const NavBar = () => {
           <Link to="/mailboxes">Mailboxes</Link>
         </li>
         <li>
-          <Link to="/newmailbox">New Mailbox</Link>
+          <Link to="/mailboxes/new">New Mailbox</Link>
         </li>
       </ul>
     </nav>
   );
 };
 
-export default NavBar
+export default NavBar;
