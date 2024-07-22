@@ -1,0 +1,4 @@
+@hostname = https://swapi.dev/api/starships/64
+
+
+get {{hostname}}

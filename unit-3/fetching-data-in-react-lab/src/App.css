@@ -1,0 +1,38 @@
+/* Initial styling */
+
+main {
+    padding: 16px 32px;
+    background-color: #f0f0f0; /* Added for debugging */
+  }
+  
+  section ul {
+    padding: 0;
+    display: grid;
+    grid-gap: 16px;
+    list-style: none;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjusted for responsiveness */
+  }
+  
+  li {
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: #333333;
+    border: 1px solid rgb(160, 160, 160);
+    color: #fff; /* Added for better visibility */
+  }
+  
+  form {
+    display: flex;
+    align-items: center;
+  }
+  
+  form * {
+    margin-right: 16px;
+  }
+  
+  input, button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid rgb(160, 160, 160);
+  }
+  
